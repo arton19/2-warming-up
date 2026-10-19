@@ -25,8 +25,10 @@ public class StringBasics {
     public String truncate(String text, int maxLength) {
         // TODO: Fix this method
 
+        // text.substring ei tallennu mihinkaan, joten lisataan text =
+
         if (text.length() > maxLength) {
-            text.substring(0, maxLength);
+            text = text.substring(0, maxLength);
         }
         return text;
     }
@@ -41,7 +43,9 @@ public class StringBasics {
     public boolean parseYesOrNo(String text) {
         // FIXME: this seems to always return false, even when the `text` is "yes"
 
-        if (text.toLowerCase() == "yes") {
+        //lisataan return false; kohta else lauseen sisaan.
+
+        if (text.toLowerCase().equals("yes")) {
             return true;
         }
         return false;
@@ -60,8 +64,16 @@ public class StringBasics {
      * @param number The input number to be evaluated.
      * @return "fizz", "buzz", "fizzbuzz" or the given number as a string.
      */
-    public String getFizzBuzz(int number) {
-        return "fizzbuzz"; // TODO: implement this method
+    public String getFizzBuzz(int number){
+        if (number % 3 == 0 && number % 5 == 0){
+            return "fizzbuzz";
+        } else if (number % 5 == 0){
+            return "buzz";
+        } else if (number % 3 == 0){
+            return "fizz"; 
+        }
+        String numero1 = Integer.toString(number);
+        return numero1;
     }
 
     /**
@@ -80,7 +92,21 @@ public class StringBasics {
      * @return The text centered in a string of the given width: " Java ".
      */
     public String center(String text, int width) {
-        return null; // TODO: implement this method
+        int tekstinPituus = text.length();
+        double paddingTekstiin = (double) (width-tekstinPituus)/2;
+        int padding = (int) Math.round(paddingTekstiin);
+
+        if (text.length() >= width){
+            return text;
+        } else if (width > text.length()){
+            if ((width-text.length()) % 2 == 0){
+                return " ".repeat(padding) + text + " ".repeat(padding);
+            } else if ((width-text.length()) % 2 != 0){
+                return " ".repeat(padding-1) + text + " ".repeat(padding);
+            }
+            return null;
+        }
+        return null;
     }
 
     /**

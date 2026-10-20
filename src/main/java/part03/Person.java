@@ -18,8 +18,12 @@ public class Person {
      * @param name The name of the person.
      * @param age  The age of the person.
      */
+    private String nimi;
+    private int ika;
+
     public Person(String name, int age) {
-        // TODO: implement this constructor
+        this.nimi = name;
+        this.ika = age;
     }
 
     /**
@@ -28,7 +32,7 @@ public class Person {
      * @return The age of the person as an integer.
      */
     public int getAge() {
-        return 0; // TODO: implement this method
+        return this.ika;
     }
 
     /**
@@ -37,7 +41,7 @@ public class Person {
      * @return The name of the person as a string.
      */
     public String getName() {
-        return null; // TODO: implement this method
+        return this.nimi; 
     }
 
     /**
